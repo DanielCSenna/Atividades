@@ -52,34 +52,17 @@
             }
         }   
 
-        public function getNome(){
-            return $this->nome;
-        }
-        
-        public function getMatricula(){
-            return $this->matricula;
-        }
+        public function getNome(){ return $this->nome ?? null; }
+        public function getMatricula(){ return $this->matricula ?? null; }
+        public function getCpf(){ return $this->cpf ?? null; }
+        public function getNascimento(){ return $this->nascimento ?? null; }
+        public function getCargo(){ return $this->cargo ?? null; }
+        public function getFuncao(){ return $this->funcao ?? null; }
+        public function getDataDeAdmissao(){ return $this->data_de_admissao ?? null; }
 
-        public function getCpf(){
-            return $this->cpf;
+        public function listarUsuarios($conexao){
+            $sql = "SELECT id, nome, matricula, cpf, nascimento, cargo, funcao, data_de_admissao FROM colaboradores ORDER BY id DESC";
+            return mysqli_query($conexao, $sql);
         }
-
-        public function getNascimento(){
-            return $this->nascimento;
-        }
-
-        public function getCargo(){
-            return $this->cargo;
-        }
-
-        public function getFuncao(){
-            return $this->funcao;
-        }
-
-        public function getDataDeAdmissao(){
-            return $this->data_de_admissao;
-        }   
-        
     }
 
-   
